@@ -11,6 +11,26 @@ This project provides a minimal React template with a clean, modern UI and minim
 
 ## Getting Started
 
+### Environment Variables
+
+You must provide a backend API base URL for the app to work.  
+In your `.env` file (located at the root of `notes_frontend`), set:
+
+```bash
+REACT_APP_API_URL=<your backend API base URL, e.g. "http://localhost:8000/api">
+```
+
+The app expects REST endpoints for:
+
+- `POST   /auth/login`   `{ email, password }`   – receive `{ token }`
+- `POST   /auth/signup`  `{ email, password }`   – receive `{ token }`
+- `GET    /notes`        (with Bearer token)      – receive `{ notes: [...] }`
+- `POST   /notes`        `{ title, content }`     – receive `{ note }`
+- `PUT    /notes/:id`    `{ title, content }`
+- `DELETE /notes/:id`
+
+### Running and Usage
+
 In the project directory, you can run:
 
 ### `npm start`
